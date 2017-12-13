@@ -44,3 +44,28 @@
   	$('#frequency-input').val('');
 
   });
+
+  //add new trains to database
+  database.ref().on('child_added', function(childSnapshot, prevChildKey){
+
+  	var trainName = childSnapshot.val().name;
+  	var trainDestination = childSnapshot.val().destination;
+  	var trainTime = childSnapshot.val().time;
+  	var trainFrequency = childSnapshot.val().frequency;
+
+  	//start time calculations
+  	var trainTimeConverted = moment(trainTime, 'hh:mm').subtract(1, 'years');
+  	var currentTime = moment();
+  	var diffTime = moment().diff(moment(trainTimeConverted), 'minutes');
+  	var timeRemainder = diffTime % trainFrequency;
+
+  	//minutes until train arrival
+  	var minutes = trainFrequency - timeRemainder;
+
+  	//next train
+  	var nextTrain = moment().add(minutes, 'minutes');
+  	var trainArrival = moment(nextTrain).format('hh:mm');
+
+  	//html reads data from database
+  	$('#schedule > tbody').append('<tr><td>' + trainName + '</td><td>' + trainDestination + '</td><td>' + trainFrequency + '</td><td>' + trainArrival + '</td><td>' + minutes + '</td></tr>');
+  });
