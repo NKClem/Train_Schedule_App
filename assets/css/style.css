@@ -1,0 +1,30 @@
+body {
+	background-image: url('../images/train.jpeg');
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	background-attachment: fixed;
+	font-family: 'Signika', sans-serif;
+	color: #2f2d2d;;
+}
+
+.jumbotron {
+	background: transparent;
+	color: white;
+	font-family: 'Shrikhand', cursive;
+	text-shadow: 3px 3px 1px #000000;
+	text-align: center;
+}
+
+#caption {
+	font-family: 'Signika', sans-serif;
+}
+
+.panel-heading {
+	background-color: #2f2d2d;
+	color: white;
+}
+
+#schedule, th {
+	text-align: center;
+}
