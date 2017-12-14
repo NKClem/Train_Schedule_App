@@ -37,6 +37,7 @@
   	console.log(newTrain.time);
   	console.log(newTrain.frequency);
 
+
   	//clear input boxes
   	$('#name-input').val('');
   	$('#destination-input').val('');
@@ -68,4 +69,6 @@
 
   	//html reads data from database
   	$('#schedule > tbody').append('<tr><td>' + trainName + '</td><td>' + trainDestination + '</td><td>' + trainFrequency + '</td><td>' + trainArrival + '</td><td>' + minutes + '</td></tr>');
+  
+
   });
